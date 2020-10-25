@@ -16,3 +16,11 @@ import Config
 #       format: "$date $time [$level] $metadata$message\n",
 #       metadata: [:user_id]
 #
+config :iex, default_prompt: ">>>"
+
+if Mix.env() == :prod do
+  config :kv, :routing_table, [
+    {?a..?m, :"foo@computer-name"},
+    {?n..?z, :"bar@computer-name"}
+  ]
+end
